@@ -8,7 +8,10 @@ var setUp = function() {  // deleted a bunch of code, need to rework
 
 
     var numberFromCalculation = function() { //calculated result(number(s))
+
+        var decimal = 0.0;
         var result = 0;
+        var errorMessage = "Cannot compute";
 
         var showNumbers = $("#display").text().split(" ");
         showNumbers.forEach(function(value, index, array) {
@@ -34,6 +37,8 @@ var setUp = function() {  // deleted a bunch of code, need to rework
                         result = multiplication(total, array[index + 1]);
                         break;
                     default:
+                    "Cannot compute"
+                    break;
                 }
 
             }
