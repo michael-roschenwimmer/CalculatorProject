@@ -1,73 +1,70 @@
-$(document).ready(function() { // needed if you want to place script just above the </head>
-    console.log("loaded");
+$(document).ready(function() {
     setUp();
 });
 
-var setUp = function() {  // deleted a bunch of code, need to rework
+var setUp = function() {
+    $(".number").on('click', displayNumber);
+    $(".operator").on('click', displayOperator);
+    $("#equals").on('click', doMath);
 
+    function displayNumber(e) {
+        // TODO : implement function
+    }
 
-  firstNum = parseFloat(firstNum);
-  secondNum = parseFloat(secondNum);
+    function displayOperator(e) {
+        // TODO : implement function
+    }
 
-    var numberFromCalculation = function() { //calculated result(number(s))
-
-        var decimal = 0.0;
-        var result = 0;
-        var errorMessage = "Cannot compute";
-
-        var showNumbers = $("#display").text().split(" ");
-        showNumbers.forEach(function(value, index, array) {
-            if (index === 0) {
-                result = value;
-            }
-            if (index % 2 === 0) {
-                return;
+    function doMath() {
+        var accumulator;
+        displayArr = $("#display").text().split(" ");
+        displayArr.forEach(function(current,i,arr){
+            if (!accumulator) {
+                accumulator = current;
             } else {
-
-                switch (value) {
-
-                    case "-":
-                        result = subtraction(total, array[index + 1]);
+                switch (current) {
+                    case "C":
+                        // TODO : clear display value (reset to empty string)
                         break;
-
+                    case "-":
+                        // TODO : assign accumulator correct value
+                        break;
                     case "+":
-                        result = addition(total, array[index + 1]);
+                        // TODO : assign accumulator correct value
                         break;
                     case "/":
-                        result = division(total, array[index + 1]);
+                        // TODO : assign accumulator correct value
                         break;
-                    case "*": //check later
-                        result = multiplication(total, array[index + 1]);
+                    case "X":
+                        // TODO : assign accumulator correct value
                         break;
-                    default:
-                    "Cannot compute"
-                    break;
+                    default :
+                        break;
                 }
-
             }
         })
-        $("#display").text(result)
-    };
-    var wipeAll = function() {
+        /*
+         Assigns accumulated value to the display (e.g. displays result of 
+         operation)
+        */
+        $("#display").text(accumulator)
+    }
+    
+    function wipeAll() {
         $("#display").text("");
     };
 
-
-
-
+    function subtraction(number, result) {
+        return result - parseFloat(number);
+    };
+    function addition(number, result) {
+        return result + parseFloat(number);
+    };
+    function division(number, result) {
+        return result / parseFloat(number);
+    };
+    function multiplication(number, result) {
+        return result * parseFloat(number);
+    };
 
 };
-
-
-// var subtraction = function(number, result) {
-//     return result = result - parseFloat(number);
-// };
-// var addition = function(number, result) {
-//     return result = result + parseFloat(number);
-// };
-// var division = function(number, result) {
-//     return result = result / parseFloat(number);
-// };
-// var multiplication = function(number, result) {
-//     return result = result * parsefloat(number);
-// };
