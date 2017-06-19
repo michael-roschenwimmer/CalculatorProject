@@ -6,6 +6,8 @@ $(document).ready(function() { // needed if you want to place script just above 
 var setUp = function() {  // deleted a bunch of code, need to rework
 
 
+  firstNum = parseFloat(firstNum);
+  secondNum = parseFloat(secondNum);
 
     var numberFromCalculation = function() { //calculated result(number(s))
 
@@ -21,6 +23,7 @@ var setUp = function() {  // deleted a bunch of code, need to rework
             if (index % 2 === 0) {
                 return;
             } else {
+
                 switch (value) {
 
                     case "-":
@@ -50,21 +53,21 @@ var setUp = function() {  // deleted a bunch of code, need to rework
     };
 
 
-    var subtraction = function(number, result) {
-        return result = result - parseFloat(number);
-    };
-    var addition = function(number, result) {
-        return result = result + parseFloat(number);
-    };
-    var division = function(number, result) {
-        return result = result / parseFloat(number);
-    };
-    var multiplication = function(number, result) {
-        return result = result * parsefloat(number);
-    };
-
-
 
 
 
 };
+
+
+// var subtraction = function(number, result) {
+//     return result = result - parseFloat(number);
+// };
+// var addition = function(number, result) {
+//     return result = result + parseFloat(number);
+// };
+// var division = function(number, result) {
+//     return result = result / parseFloat(number);
+// };
+// var multiplication = function(number, result) {
+//     return result = result * parsefloat(number);
+// };
